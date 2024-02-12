@@ -1,9 +1,9 @@
 /* eslint-disable prettier/prettier */
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { User } from './user/user.entity';
-import { UserController } from './user/user.controller';
-import { UserService } from './user/user.service';
+import { User } from './member/member.entity';
+import { UserController } from './member/member.controller';
+import { UserService } from './member/member.service';
 import { VolunteerModule } from './volunteer/volunteer.module';
 import { Volunteer } from './volunteer/volunteer.entity';
 
@@ -25,4 +25,4 @@ import { Volunteer } from './volunteer/volunteer.entity';
   controllers: [UserController],
   providers: [UserService],
 })
-export class AppModule { }
+export class AppModule {}
