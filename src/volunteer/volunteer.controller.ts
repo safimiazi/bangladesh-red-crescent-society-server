@@ -11,7 +11,7 @@ export class VolunteerController {
 
 
   @Post()
-  async createVolunteer(@Body() createVolunteerDto: CreateVolunteerDto): Promise<{ message: string, volunteer: Volunteer }> {
+  async createDropmenu(@Body() createVolunteerDto: CreateVolunteerDto): Promise<{ message: string, volunteer: Volunteer }> {
     try {
       const volunteer = await this.volunteerService.createVolunteer(createVolunteerDto);
       return { message: 'User created successfully', volunteer };
