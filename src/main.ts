@@ -1,5 +1,8 @@
 /* eslint-disable prettier/prettier */
 
+import { config } from 'dotenv';
+config();
+
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 
