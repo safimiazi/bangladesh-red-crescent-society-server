@@ -1,7 +1,7 @@
 /* eslint-disable prettier/prettier */
 
 
-import { IsNotEmpty, IsString, IsEmail, IsOptional, IsBoolean, IsObject } from 'class-validator';
+import { IsNotEmpty, IsString, IsEmail, IsOptional, IsBoolean } from 'class-validator';
 
 export class CreateUserDto {
   @IsNotEmpty()
@@ -86,6 +86,5 @@ export class CreateUserDto {
   @IsOptional()
   @IsString()
   selectedReligionType: string;
-
 
 }
