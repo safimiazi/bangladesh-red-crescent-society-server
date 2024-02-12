@@ -1,21 +1,21 @@
 /* eslint-disable prettier/prettier */
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { User } from './user/user.entity';
-import { UserController } from './user/user.controller';
-import { UserService } from './user/user.service';
+import { User } from './member/member.entity';
+import { UserController } from './member/member.controller';
+import { UserService } from './member/member.service';
 import { VolunteerModule } from './volunteer/volunteer.module';
 import { Volunteer } from './volunteer/volunteer.entity';
 
 @Module({
   imports: [
     TypeOrmModule.forRoot({
-      type: "postgres",
-      host: process.env.HOST,
-      port: parseInt(process.env.PORT, 10),
-      username: process.env.USERNAME ,
-      password: process.env.PASSWORD ,
-      database: process.env.DATABASE,
+      type: 'postgres',
+      host: process.env.DB_HOST,
+      port: parseInt(process.env.DB_PORT, 10),
+      username: process.env.DB_USERNAME,
+      password: process.env.DB_PASSWORD,
+      database: process.env.DB_NAME,
       entities: [User, Volunteer],
       synchronize: true,
     }),
