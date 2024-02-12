@@ -6,13 +6,11 @@ import { UserController } from './user/user.controller';
 import { UserService } from './user/user.service';
 import { VolunteerModule } from './volunteer/volunteer.module';
 import { Volunteer } from './volunteer/volunteer.entity';
-import { ConfigModule } from '@nestjs/config';
 
 @Module({
   imports: [
-    ConfigModule.forRoot(),
     TypeOrmModule.forRoot({
-      type: (process.env.TYPE || 'postgres') as any,
+      type: "postgres",
       host: process.env.HOST,
       port: parseInt(process.env.PORT, 10),
       username: process.env.USERNAME ,
