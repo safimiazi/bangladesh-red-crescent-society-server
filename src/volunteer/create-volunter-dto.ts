@@ -1,14 +1,114 @@
 /* eslint-disable prettier/prettier */
 
 
-import { IsNotEmpty, IsString } from 'class-validator';
+import { IsDate, IsEmail, IsNotEmpty, IsNumber, IsOptional, IsString } from 'class-validator';
 
 export class CreateVolunteerDto {
     @IsNotEmpty()
     @IsString()
     name: string;
 
+    @IsOptional()
+    @IsString()
+    unit: string;
+
+    @IsOptional()
+    @IsString()
+    affiliatedUpazilas: string;
+
     @IsNotEmpty()
     @IsString()
-    age: string;
+    volunteerType: string;
+
+    @IsNotEmpty()
+    @IsNumber()
+    volunteerId: number;
+
+    @IsNotEmpty()
+    @IsString()
+    volunteerPosition: string;
+
+    @IsNotEmpty()
+    @IsString()
+    gender: string;
+
+    @IsOptional()
+    @IsString()
+    registrationNo: string;
+
+    @IsOptional()
+    @IsNumber()
+    nationalId: number;
+
+    @IsOptional()
+    @IsString()
+    education: string;
+
+    @IsOptional()
+    @IsDate()
+    dob: Date;
+
+    @IsNotEmpty()
+    @IsString()
+    religion: string;
+
+    @IsNotEmpty()
+    @IsString()
+    bloodGroup: string;
+
+    @IsOptional()
+    @IsDate()
+    joiningDate: Date;
+
+    @IsOptional()
+    @IsNumber()
+    mobileNo: string;
+
+    @IsOptional()
+    @IsNumber()
+    emergencyContactNo: number;
+
+    @IsOptional()
+    @IsEmail()
+    email: string;
+
+    @IsOptional()
+    @IsString()
+    fathersName: string;
+
+    @IsOptional()
+    @IsString()
+    mothersName: string;
+
+    @IsOptional()
+    @IsNumber()
+    birthCertificateNo: number;
+
+    @IsOptional()
+    @IsNumber()
+    passportNo: number;
+
+    @IsOptional()
+    @IsString()
+    presentOccupation: string;
+
+    @IsOptional()
+    @IsString()
+    adress: string;
+
+    @IsOptional()
+    @IsString()
+    insurance: string;
+
+    @IsOptional()
+    @IsString()
+    twitter: string;
+
+    @IsOptional()
+    @IsString()
+    facebook: string;
+
+    @IsOptional()
+    @IsString()
+    resourceType: string;
 }

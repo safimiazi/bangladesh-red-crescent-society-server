@@ -1,4 +1,5 @@
 /* eslint-disable prettier/prettier */
+
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Volunteer } from './volunteer.entity';
@@ -22,16 +23,5 @@ export class VolunteerService {
             console.error('Error saving user:', error);
             throw error;
         }
-
-        /*
-            const user = this.userRepository.create(userData);
-    console.log(user);
-    const savedUser = await this.userRepository.save(user);
-    return savedUser;
-        */
-
-        // const user = this.userRepository.create(userData);
-        // console.log(user);
-        // return await this.userRepository.save(user);
     }
 }
