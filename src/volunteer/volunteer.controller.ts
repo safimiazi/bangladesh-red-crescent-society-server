@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import { Body, Controller, Get, HttpException, HttpStatus, Post, Req, Res } from '@nestjs/common';
 import { VolunteerService } from './volunteer.service';
 import { Volunteer } from './volunteer.entity';
