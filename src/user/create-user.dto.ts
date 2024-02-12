@@ -88,7 +88,4 @@ export class CreateUserDto {
   selectedReligionType: string;
 
 
- @IsOptional()
-  @IsObject({ message: 'Image must be an object' })
-  image: object;
 }
