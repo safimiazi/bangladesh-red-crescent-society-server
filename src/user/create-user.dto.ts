@@ -1,7 +1,7 @@
 /* eslint-disable prettier/prettier */
 
 
-import { IsNotEmpty, IsString, IsEmail, IsOptional, IsBoolean, IsObject } from 'class-validator';
+import { IsNotEmpty, IsString, IsEmail, IsOptional, IsBoolean } from 'class-validator';
 
 export class CreateUserDto {
   @IsNotEmpty()
@@ -87,8 +87,4 @@ export class CreateUserDto {
   @IsString()
   selectedReligionType: string;
 
-
- @IsOptional()
-  @IsString({ message: 'Image must be an object' })
-  image: string;
 }
