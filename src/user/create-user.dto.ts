@@ -89,6 +89,6 @@ export class CreateUserDto {
 
 
  @IsOptional()
-  @IsObject({ message: 'Image must be an object' })
-  image: object;
+  @IsString({ message: 'Image must be an object' })
+  image: string;
 }

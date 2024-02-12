@@ -103,8 +103,4 @@ export class User {
   @Column({ nullable: true })
   selectedReligionType: string;
 
-  @Column()
-  image: object;
-
-
 }
