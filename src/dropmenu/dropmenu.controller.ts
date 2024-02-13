@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import { Body, Controller, Get, HttpException, HttpStatus, Post } from '@nestjs/common';
 import { DropmenuService } from './dropmenu.service';
 import { CreateDropmenuDto } from './create-dropmenu.dto';

@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import { Injectable } from '@nestjs/common';
 import { Dropmenu } from './dropmenu.entity';
 import { Repository } from 'typeorm';
