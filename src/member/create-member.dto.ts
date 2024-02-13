@@ -77,6 +77,10 @@ export class CreateUserDto {
 
   @IsOptional()
   @IsString()
+  contactNo: string;
+
+  @IsOptional()
+  @IsString()
   selectedUpazilaType: string;
 
   @IsOptional()
