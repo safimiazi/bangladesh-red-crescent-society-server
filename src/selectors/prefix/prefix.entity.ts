@@ -1,6 +1,6 @@
 /* eslint-disable prettier/prettier */
 import { Column, Entity, OneToOne, PrimaryGeneratedColumn } from "typeorm";
-import { User } from "../../member/member.entity";
+import { Member } from "../../member/member.entity";
 
 @Entity()
 export class Prefix {
@@ -10,6 +10,6 @@ export class Prefix {
     @Column()
     name: string;
 
-    @OneToOne(()=> User, (user)=> user.prefix)
-    user:User;
+    @OneToOne(()=> Member, (member)=> member.prefix)
+    member:Member;
 }

@@ -8,4 +8,5 @@ export class BloodGroup {
 
     @Column()
     name: string;
+
 }

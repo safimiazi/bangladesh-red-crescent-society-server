@@ -3,7 +3,7 @@
 
 import { IsNotEmpty, IsString, IsEmail, IsOptional, IsBoolean } from 'class-validator';
 
-export class CreateUserDto {
+export class CreateMemberDto {
   @IsNotEmpty()
   @IsString()
   name: string;
@@ -90,5 +90,12 @@ export class CreateUserDto {
   @IsOptional()
   @IsString()
   selectedReligionType: string;
+
+
+  @IsOptional()
+  @IsString()
+  emergencyContactNo: string;
+
+
 
 }

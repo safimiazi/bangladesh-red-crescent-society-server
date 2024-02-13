@@ -1,19 +1,19 @@
 /* eslint-disable prettier/prettier */
 
 import { Body, Controller, Post, HttpException, HttpStatus } from '@nestjs/common';
-import { UserService } from './member.service';
-import { CreateUserDto } from './create-member.dto';
-import { User } from './member.entity';
+import { MemberService } from './member.service';
+import { CreateMemberDto } from './create-member.dto';
+import { Member } from './member.entity';
 
-@Controller('users')
-export class UserController {
-  constructor(private readonly userService: UserService) { }
+@Controller('members')
+export class MemberController {
+  constructor(private readonly memberService: MemberService) { }
 
   @Post()
-  async createUser(@Body() createUserDto: CreateUserDto): Promise<{ message: string, user: User }> {
+  async createMember(@Body() createMemberDto: CreateMemberDto): Promise<{ message: string, member: Member }> {
     try {
-      const user = await this.userService.createUser(createUserDto);
-      return { message: 'User created successfully', user };
+      const member = await this.memberService.createMember(createMemberDto);
+      return { message: 'User created successfully', member };
     } catch (error) {
 
 

@@ -5,7 +5,7 @@ import { MemberType } from '../selectors/member-type/member-type.entity';
 import { Prefix } from '../selectors/prefix/prefix.entity';
 
 @Entity()
-export class User {
+export class Member {
   @PrimaryGeneratedColumn()
   id: number;
 
