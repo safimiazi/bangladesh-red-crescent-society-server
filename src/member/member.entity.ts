@@ -1,6 +1,8 @@
 /* eslint-disable prettier/prettier */
 
-import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
+import { Entity, Column, PrimaryGeneratedColumn, OneToOne, JoinColumn } from 'typeorm';
+import { MemberType } from '../selectors/member-type/member-type.entity';
+import { Prefix } from '../selectors/prefix/prefix.entity';
 
 @Entity()
 export class User {
@@ -102,6 +104,14 @@ export class User {
 
   @Column({ nullable: true })
   selectedReligionType: string;
+
+  @OneToOne(() => MemberType, {eager: true, nullable: true})
+  @JoinColumn()
+  memberType: MemberType;
+
+  @OneToOne(()=> Prefix, {eager: true, nullable: true })
+  @JoinColumn()
+  prefix: Prefix;
 
 
 };
