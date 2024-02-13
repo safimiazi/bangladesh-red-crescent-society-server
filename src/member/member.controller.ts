@@ -13,10 +13,10 @@ export class MemberController {
   async createMember(@Body() createMemberDto: CreateMemberDto): Promise<{ message: string, member: Member }> {
     try {
       const member = await this.memberService.createMember(createMemberDto);
+      console.log(member);
       return { message: 'User created successfully', member };
     } catch (error) {
-
-
+      console.log(error);
       throw new HttpException({ message: 'An unexpected error occurred.' }, HttpStatus.INTERNAL_SERVER_ERROR);
     }
   }

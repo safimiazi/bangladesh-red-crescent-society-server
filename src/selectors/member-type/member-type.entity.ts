@@ -10,6 +10,6 @@ export class MemberType {
     @Column()
     name: string;
 
-    @OneToOne(() => Member, (member)=> member.memberType)
+    @OneToOne(() => Member, (member) => member.memberType)
     member: Member;
 }

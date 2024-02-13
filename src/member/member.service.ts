@@ -14,6 +14,7 @@ export class MemberService {
 
   async createMember(memberData: Partial<Member>): Promise<Member> {
     const member = this.memberRepository.create(memberData);
+    console.log(member);
     return await this.memberRepository.save(member);
   }
  
