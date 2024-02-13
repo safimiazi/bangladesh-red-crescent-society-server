@@ -1,9 +1,9 @@
 /* eslint-disable prettier/prettier */
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { User } from './member/member.entity';
-import { UserController } from './member/member.controller';
-import { UserService } from './member/member.service';
+import { Member } from './member/member.entity';
+import { MemberController } from './member/member.controller';
+import { MemberService } from './member/member.service';
 import { VolunteerModule } from './volunteer/volunteer.module';
 import { Volunteer } from './volunteer/volunteer.entity';
 import { DropmenuModule } from './dropmenu/dropmenu.module';
@@ -27,10 +27,10 @@ import { Religion } from './selectors/religion/religion.entity';
       username: process.env.DB_USERNAME,
       password: process.env.DB_PASSWORD,
       database: process.env.DB_NAME,
-      entities: [User, Volunteer, Dropmenu, Prefix, Unit, MemberType, Religion],
+      entities: [Member, Volunteer, Dropmenu, Prefix, Unit, MemberType, Religion],
       synchronize: true,
     }),
-    TypeOrmModule.forFeature([User]),
+    TypeOrmModule.forFeature([Member]),
     VolunteerModule,
     DropmenuModule,
     MemberTypeModule,
@@ -38,7 +38,7 @@ import { Religion } from './selectors/religion/religion.entity';
     UnitModule,
     ReligionModule,
   ],
-  controllers: [UserController],
-  providers: [UserService, PrefixService],
+  controllers: [MemberController],
+  providers: [MemberService, PrefixService],
 })
 export class AppModule {}

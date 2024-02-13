@@ -1,6 +1,6 @@
 /* eslint-disable prettier/prettier */
 import { Column, Entity, OneToOne, PrimaryGeneratedColumn } from "typeorm";
-import { User } from "../../member/member.entity";
+import { Member } from "../../member/member.entity";
 
 @Entity()
 export class MemberType {
@@ -10,6 +10,6 @@ export class MemberType {
     @Column()
     name: string;
 
-    @OneToOne(() => User, (user)=> user.memberType)
-    user: User;
+    @OneToOne(() => Member, (member)=> member.memberType)
+    member: Member;
 }
