@@ -11,17 +11,17 @@ import { Dropmenu } from './dropmenu/dropmenu.entity';
 import { MemberTypeController } from './selectors/member-type/member-type.controller';
 import { ReligionModule } from './selectors/religion/religion.module';
 import { UnitModule } from './selectors/unit/unit.module';
-import { BloodGroupModule } from './selectors/blood-group/blood-group.module';
-import { BloodGroupService } from './selectors/blood-group/blood-group.service';
-import { BloodGroupController } from './selectors/blood-group/blood-group.controller';
 import { PrefixModule } from './selectors/prefix/prefix.module';
 import { PrefixService } from './selectors/prefix/prefix.service';
 import { MemberTypeModule } from './selectors/member-type/member-type.module';
 import { Prefix } from './selectors/prefix/prefix.entity';
 import { Unit } from './selectors/unit/unit.entity';
-import { BloodGroup } from './selectors/blood-group/blood-group.entity';
 import { MemberType } from './selectors/member-type/member-type.entity';
 import { Religion } from './selectors/religion/religion.entity';
+import { BloodGroupModule } from './selectors/blood-group/blood-group.module';
+import { BloodGroupController } from './selectors/blood-group/blood-group.controller';
+import { BloodGroupService } from './selectors/blood-group/blood-group.service';
+import { BloodGroup } from './selectors/blood-group/blood-group.entity';
 
 @Module({
   imports: [
@@ -40,9 +40,9 @@ import { Religion } from './selectors/religion/religion.entity';
     DropmenuModule,
     MemberTypeModule,
     PrefixModule,
-    BloodGroupModule,
     UnitModule,
     ReligionModule,
+    BloodGroupModule,
   ],
   controllers: [MemberController, MemberTypeController, BloodGroupController],
   providers: [MemberService, PrefixService, BloodGroupService,],

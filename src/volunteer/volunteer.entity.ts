@@ -40,8 +40,8 @@ export class Volunteer {
     @Column({ nullable: true })
     dob: Date;
 
-    @Column()
-    religion: string;
+    // @Column()
+    // religion: string;
 
     @Column()
     bloodGroup: string;
