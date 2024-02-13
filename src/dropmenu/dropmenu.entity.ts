@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 // member-profile.entity.ts
 import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
 

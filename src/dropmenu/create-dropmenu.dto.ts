@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 // create-member-profile.dto.ts
 import { IsArray, IsNotEmpty, IsString } from 'class-validator';
 
