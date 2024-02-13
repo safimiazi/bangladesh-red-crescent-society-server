@@ -11,7 +11,6 @@ export class ReligionService {
     ) { }
 
     async createReligion(religionData: Partial<Religion>): Promise<Religion> {
-
         try {
             const religion = this.religionRepository.create(religionData);
             console.log(religion);
