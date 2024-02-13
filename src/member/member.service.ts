@@ -2,19 +2,19 @@
 
 import { Injectable } from '@nestjs/common';
 import { Repository } from 'typeorm';
-import { User } from './member.entity';
+import { Member } from './member.entity';
 import { InjectRepository } from '@nestjs/typeorm/dist/common';
 
 @Injectable()
-export class UserService {
+export class MemberService {
   constructor(
-    @InjectRepository(User)
-    private readonly userRepository: Repository<User>,
+    @InjectRepository(Member)
+    private readonly memberRepository: Repository<Member>,
   ) {}
 
-  async createUser(userData: Partial<User>): Promise<User> {
-    const user = this.userRepository.create(userData);
-    return await this.userRepository.save(user);
+  async createMember(memberData: Partial<Member>): Promise<Member> {
+    const member = this.memberRepository.create(memberData);
+    return await this.memberRepository.save(member);
   }
  
 }
