@@ -1,4 +1,25 @@
 import { Injectable } from '@nestjs/common';
+import { InjectRepository } from '@nestjs/typeorm';
+import { Religion } from '../religion/religion.entity';
+import { MemberType } from './member-type.entity';
+import { Repository } from 'typeorm';
 
 @Injectable()
-export class MemberTypeService {}
+export class MemberTypeService {
+    constructor(
+        @InjectRepository(MemberType)
+        private readonly memberTypeRepository: Repository<MemberType>,
+    ) { }
+
+    async createMemberType(memberType: Partial<MemberType>): Promise<MemberType> {
+        try {
+            const member = this.memberTypeRepository.create(memberType);
+            console.log(member);
+            const saveMemberType = await this.memberTypeRepository.save(member);
+            return saveMemberType;
+        } catch (error) {
+            console.error('Error saving user:', error);
+            throw error;
+        }
+    }
+}
