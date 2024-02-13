@@ -105,12 +105,13 @@ export class Member {
   @Column({ nullable: true })
   selectedReligionType: string;
 
-  @OneToOne(() => MemberType, {eager: true, nullable: true})
+  @OneToOne(() => MemberType, memberType => memberType.member,
+   { eager: true, nullable: true })
   @JoinColumn()
   memberType: MemberType;
 
-  @OneToOne(()=> Prefix, {eager: true, nullable: true })
-  @JoinColumn()
-  prefix: Prefix;
+  // @OneToOne(()=> Prefix, {eager: true, nullable: true })
+  // @JoinColumn()
+  // prefix: Prefix;
 
 };
