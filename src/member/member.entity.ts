@@ -113,5 +113,4 @@ export class User {
   @JoinColumn()
   prefix: Prefix;
 
-
 };
