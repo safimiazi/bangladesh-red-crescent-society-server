@@ -5,6 +5,7 @@ import { MemberType } from '../selectors/member-type/member-type.entity';
 import { Prefix } from '../selectors/prefix/prefix.entity';
 import { Unit } from 'src/selectors/unit/unit.entity';
 import { Religion } from 'src/selectors/religion/religion.entity';
+import { BloodGroup } from 'src/selectors/blood-group/blood-group.entity';
 
 @Entity()
 export class Member {
@@ -124,6 +125,8 @@ export class Member {
   @JoinColumn()
   religion: Religion;
 
-
+  @OneToOne(()=> BloodGroup, {eager:true, nullable: true, cascade: true, onDelete: "CASCADE"})
+  @JoinColumn()
+  bloodGroup: BloodGroup;
 
 };
