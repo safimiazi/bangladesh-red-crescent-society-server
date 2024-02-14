@@ -17,6 +17,7 @@ import { Prefix } from './selectors/prefix/prefix.entity';
 import { Unit } from './selectors/unit/unit.entity';
 import { MemberType } from './selectors/member-type/member-type.entity';
 import { Religion } from './selectors/religion/religion.entity';
+import { BloodGroupModule } from './selectors/blood-group/blood-group.module';
 
 @Module({
   imports: [
@@ -37,6 +38,7 @@ import { Religion } from './selectors/religion/religion.entity';
     PrefixModule,
     UnitModule,
     ReligionModule,
+    BloodGroupModule,
   ],
   controllers: [MemberController],
   providers: [MemberService, PrefixService],

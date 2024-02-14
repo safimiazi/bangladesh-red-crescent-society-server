@@ -1,5 +1,6 @@
 /* eslint-disable prettier/prettier */
-import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { Member } from "src/member/member.entity";
+import { Column, Entity, OneToOne, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity()
 export class BloodGroup {
@@ -9,4 +10,7 @@ export class BloodGroup {
     @Column()
     name: string;
 
+
+    @OneToOne(() => Member, (member) => member.bloodGroup, { nullable: true })
+    member: Member;
 }
