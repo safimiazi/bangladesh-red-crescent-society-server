@@ -18,6 +18,7 @@ import { Unit } from './selectors/unit/unit.entity';
 import { MemberType } from './selectors/member-type/member-type.entity';
 import { Religion } from './selectors/religion/religion.entity';
 import { BloodGroupModule } from './selectors/blood-group/blood-group.module';
+import { BloodGroup } from './selectors/blood-group/blood-group.entity';
 
 @Module({
   imports: [
@@ -28,7 +29,7 @@ import { BloodGroupModule } from './selectors/blood-group/blood-group.module';
       username: process.env.DB_USERNAME,
       password: process.env.DB_PASSWORD,
       database: process.env.DB_NAME,
-      entities: [Member, Volunteer, Dropmenu, Prefix, Unit, MemberType, Religion],
+      entities: [Member, Volunteer, Dropmenu, Prefix, Unit, MemberType, Religion, BloodGroup],
       synchronize: true,
     }),
     TypeOrmModule.forFeature([Member]),
