@@ -1,5 +1,6 @@
 /* eslint-disable prettier/prettier */
-import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { Member } from "src/member/member.entity";
+import { Column, Entity, OneToOne, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity()
 export class Religion {
@@ -8,4 +9,7 @@ export class Religion {
 
     @Column()
     name: string;
+
+    @OneToOne(()=> Member, (member)=> member.religion, { nullable: true})
+    member: Member;
 }

@@ -3,6 +3,8 @@
 import { Entity, Column, PrimaryGeneratedColumn, OneToOne, JoinColumn } from 'typeorm';
 import { MemberType } from '../selectors/member-type/member-type.entity';
 import { Prefix } from '../selectors/prefix/prefix.entity';
+import { Unit } from 'src/selectors/unit/unit.entity';
+import { Religion } from 'src/selectors/religion/religion.entity';
 
 @Entity()
 export class Member {
@@ -105,13 +107,23 @@ export class Member {
   @Column({ nullable: true })
   selectedReligionType: string;
 
-  @OneToOne(() => MemberType, memberType => memberType.member,
-   { eager: true, nullable: true })
+  @OneToOne(() => MemberType, {eager:true, nullable:true, cascade: true, onDelete: "CASCADE"})
   @JoinColumn()
   memberType: MemberType;
 
-  // @OneToOne(()=> Prefix, {eager: true, nullable: true })
-  // @JoinColumn()
-  // prefix: Prefix;
+  @OneToOne(()=> Prefix, {eager:true, nullable:true, cascade: true, onDelete: "CASCADE"})
+  @JoinColumn()
+  prefix: Prefix;
+
+  @OneToOne(()=> Unit, {eager:true, nullable:true, cascade: true, onDelete: "CASCADE"})
+  @JoinColumn()
+  unit: Unit;
+
+
+  @OneToOne(()=> Religion, {eager:true, nullable: true, cascade: true, onDelete: "CASCADE"})
+  @JoinColumn()
+  religion: Religion;
+
+
 
 };
