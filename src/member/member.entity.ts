@@ -1,4 +1,3 @@
-import { Religion } from './../selectors/religion/religion.entity';
 /* eslint-disable prettier/prettier */
 
 import { Entity, Column, PrimaryGeneratedColumn, OneToOne, JoinColumn } from 'typeorm';
@@ -108,11 +107,11 @@ export class Member {
   @Column({ nullable: true })
   selectedReligionType: string;
 
-  @OneToOne(() => MemberType, { eager: true, nullable: true, cascade: true, onDelete: 'CASCADE' })
-    @JoinColumn()
-    memberType: MemberType;
+  @OneToOne(() => MemberType, {eager:true, nullable:true, cascade: true, onDelete: "CASCADE"})
+  @JoinColumn()
+  memberType: MemberType;
 
-  @OneToOne(()=> Prefix, {eager:true, nullable: true, cascade: true, onDelete: "CASCADE"})
+  @OneToOne(()=> Prefix, {eager:true, nullable:true, cascade: true, onDelete: "CASCADE"})
   @JoinColumn()
   prefix: Prefix;
 
