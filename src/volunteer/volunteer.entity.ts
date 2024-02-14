@@ -1,6 +1,7 @@
 /* eslint-disable prettier/prettier */
 
-import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
+import { BloodGroup } from 'src/selectors/blood-group/blood-group.entity';
+import { Entity, Column, PrimaryGeneratedColumn, JoinColumn, OneToOne } from 'typeorm';
 
 @Entity()
 export class Volunteer {
@@ -87,5 +88,10 @@ export class Volunteer {
 
     @Column({ nullable: true })
     resourceType: string;
+
+    
+  @OneToOne(()=> BloodGroup, {eager:true, nullable: true, cascade: true, onDelete: "CASCADE"})
+  @JoinColumn()
+  bg: BloodGroup;
 
 }
