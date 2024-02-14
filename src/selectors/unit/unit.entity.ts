@@ -1,5 +1,6 @@
 /* eslint-disable prettier/prettier */
-import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { Member } from "src/member/member.entity";
+import { Column, Entity, OneToOne, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity()
 
@@ -9,6 +10,9 @@ export class Unit {
 
     @Column()
     name: string;
+
+    @OneToOne(()=> Member, (member)=> member.unit, {nullable: true})
+    member: Member;
 
 
 }

@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import { Body, Controller, HttpException, HttpStatus, Post } from '@nestjs/common';
 import { MemberTypeService } from './member-type.service';
 import { MemberType } from './member-type.entity';

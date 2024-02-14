@@ -10,6 +10,6 @@ export class Prefix {
     @Column()
     name: string;
 
-    @OneToOne(()=> Member, (member)=> member.prefix)
+    @OneToOne(()=> Member, (member)=> member.prefix , {nullable: true})
     member:Member;
 }
