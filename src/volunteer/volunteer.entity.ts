@@ -1,6 +1,7 @@
 /* eslint-disable prettier/prettier */
 
 import { BloodGroup } from 'src/selectors/blood-group/blood-group.entity';
+import { Unit } from 'src/selectors/unit/unit.entity';
 import { Entity, Column, PrimaryGeneratedColumn, JoinColumn, OneToOne } from 'typeorm';
 
 @Entity()
@@ -41,8 +42,8 @@ export class Volunteer {
     @Column({ nullable: true })
     dob: Date;
 
-    // @Column()
-    // religion: string;
+    @Column()
+    religion: string;
 
     @Column()
     bloodGroup: string;
@@ -92,6 +93,10 @@ export class Volunteer {
     
   @OneToOne(()=> BloodGroup, {eager:true, nullable: true, cascade: true, onDelete: "CASCADE"})
   @JoinColumn()
-  bg: BloodGroup;
+  volunteerBloodGroup: BloodGroup;
+
+  @OneToOne(()=> Unit, {eager:true, nullable:true, cascade: true, onDelete: "CASCADE"})
+  @JoinColumn()
+  volunteerUnit: Unit;
 
 }

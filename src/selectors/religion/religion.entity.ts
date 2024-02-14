@@ -10,6 +10,6 @@ export class Religion {
     @Column()
     name: string;
 
-    @OneToOne(()=> Member, (member)=> member.religion, { nullable: true})
-    member: Member;
+    // @OneToOne(()=> Member, (member)=> member.religion, { nullable: true})
+    // member: Member;
 }

@@ -17,5 +17,15 @@ export class MemberService {
     console.log(member);
     return await this.memberRepository.save(member);
   }
+
+
+  async getAllMembers(): Promise<Member[]> {
+    return await this.memberRepository.find();
+  }
+
+
+  async findAllMember(): Promise<Member[]> {
+    return this.memberRepository.find({ relations: ["memberType"] });
+}
  
 }

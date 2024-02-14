@@ -1,11 +1,11 @@
 /* eslint-disable prettier/prettier */
 
-import { Entity, Column, PrimaryGeneratedColumn, OneToOne, JoinColumn } from 'typeorm';
+import { Entity, Column, PrimaryGeneratedColumn, JoinColumn, ManyToOne } from 'typeorm';
 import { MemberType } from '../selectors/member-type/member-type.entity';
-import { Prefix } from '../selectors/prefix/prefix.entity';
-import { Unit } from 'src/selectors/unit/unit.entity';
-import { Religion } from 'src/selectors/religion/religion.entity';
-import { BloodGroup } from 'src/selectors/blood-group/blood-group.entity';
+// import { Prefix } from '../selectors/prefix/prefix.entity';
+// import { Unit } from 'src/selectors/unit/unit.entity';
+// import { Religion } from 'src/selectors/religion/religion.entity';
+// import { BloodGroup } from 'src/selectors/blood-group/blood-group.entity';
 
 @Entity()
 export class Member {
@@ -90,8 +90,6 @@ export class Member {
   @Column()
   isFemale: boolean;
 
-  @Column({ nullable: true })
-  selectedMemberType: string;
 
   @Column({ nullable: true })
   selectedPrefixType: string;
@@ -108,25 +106,30 @@ export class Member {
   @Column({ nullable: true })
   selectedReligionType: string;
 
-  @OneToOne(() => MemberType, {eager:true, nullable:true, cascade: true, onDelete: "CASCADE"})
+
+  @ManyToOne(() => MemberType, {eager:true, nullable:true, cascade: true, onDelete: "CASCADE"})
   @JoinColumn()
   memberType: MemberType;
 
-  @OneToOne(()=> Prefix, {eager:true, nullable:true, cascade: true, onDelete: "CASCADE"})
-  @JoinColumn()
-  prefix: Prefix;
-
-  @OneToOne(()=> Unit, {eager:true, nullable:true, cascade: true, onDelete: "CASCADE"})
-  @JoinColumn()
-  unit: Unit;
 
 
-  @OneToOne(()=> Religion, {eager:true, nullable: true, cascade: true, onDelete: "CASCADE"})
-  @JoinColumn()
-  religion: Religion;
 
-  @OneToOne(()=> BloodGroup, {eager:true, nullable: true, cascade: true, onDelete: "CASCADE"})
-  @JoinColumn()
-  bloodGroup: BloodGroup;
+
+  // @OneToOne(()=> Prefix, {eager:true, nullable:true, cascade: true, onDelete: "CASCADE"})
+  // @JoinColumn()
+  // prefix: Prefix;
+
+  // @OneToOne(()=> Unit, {eager:true, nullable:true, cascade: true, onDelete: "CASCADE"})
+  // @JoinColumn()
+  // unit: Unit;
+
+
+  // @OneToOne(()=> Religion, {eager:true, nullable: true, cascade: true, onDelete: "CASCADE"})
+  // @JoinColumn()
+  // religion: Religion;
+
+  // @OneToOne(()=> BloodGroup, {eager:true, nullable: true, cascade: true, onDelete: "CASCADE"})
+  // @JoinColumn()
+  // bloodGroup: BloodGroup;
 
 };
