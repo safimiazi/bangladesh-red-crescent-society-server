@@ -1,7 +1,7 @@
 /* eslint-disable prettier/prettier */
 
 
-import { IsNotEmpty, IsString, IsEmail, IsOptional, IsBoolean, ValidateNested } from 'class-validator';
+import { IsNotEmpty, IsString, IsEmail, IsOptional, IsBoolean } from 'class-validator';
 
 export class CreateMemberDto {
   @IsNotEmpty()
@@ -65,10 +65,6 @@ export class CreateMemberDto {
 
   @IsOptional()
   @IsString()
-  selectedMemberType: string;
-
-  @IsOptional()
-  @IsString()
   selectedPrefixType: string;
 
   @IsOptional()
@@ -94,5 +90,8 @@ export class CreateMemberDto {
   @IsOptional()
   @IsString()
   emergencyContactNo: string;
+
+ @IsNotEmpty()
+ memberTypeId: number
 
 }

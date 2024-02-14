@@ -12,12 +12,12 @@ export class BloodGroup {
     name: string;
 
 
-    @OneToOne(() => Member, (member) => member.bloodGroup, { nullable: true })
-    member: Member;
+    // @OneToOne(() => Member, (member) => member.bloodGroup, { nullable: true })
+    // member: Member;
 
     
-    @OneToOne(() => Volunteer, (volunteer) => volunteer.bg, { nullable: true })
-    volunteer: Volunteer;
+    // @OneToOne(() => Volunteer, (volunteer) => volunteer.volunteerBloodGroup, { nullable: true })
+    // volunteer: Volunteer;
 
 
 }
