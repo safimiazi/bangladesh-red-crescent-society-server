@@ -1,7 +1,5 @@
 /* eslint-disable prettier/prettier */
 
-import { BloodGroup } from 'src/selectors/blood-group/blood-group.entity';
-import { Unit } from 'src/selectors/unit/unit.entity';
 import { Entity, Column, PrimaryGeneratedColumn, JoinColumn, OneToOne } from 'typeorm';
 
 @Entity()
@@ -91,12 +89,12 @@ export class Volunteer {
     resourceType: string;
 
     
-  @OneToOne(()=> BloodGroup, {eager:true, nullable: true, cascade: true, onDelete: "CASCADE"})
-  @JoinColumn()
-  volunteerBloodGroup: BloodGroup;
+  // @OneToOne(()=> BloodGroup, {eager:true, nullable: true, cascade: true, onDelete: "CASCADE"})
+  // @JoinColumn()
+  // volunteerBloodGroup: BloodGroup;
 
-  @OneToOne(()=> Unit, {eager:true, nullable:true, cascade: true, onDelete: "CASCADE"})
-  @JoinColumn()
-  volunteerUnit: Unit;
+  // @OneToOne(()=> Unit, {eager:true, nullable:true, cascade: true, onDelete: "CASCADE"})
+  // @JoinColumn()
+  // volunteerUnit: Unit;
 
 }

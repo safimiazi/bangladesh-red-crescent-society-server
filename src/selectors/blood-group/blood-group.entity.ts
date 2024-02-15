@@ -4,7 +4,7 @@ import { Volunteer } from "src/volunteer/volunteer.entity";
 import { Column, Entity, OneToOne, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity()
-export class BloodGroup {
+export class BloodGroupTable {
     @PrimaryGeneratedColumn()
     id:number;
 
