@@ -23,4 +23,10 @@ export class PrefixService {
             throw new Error('Failed to create prefix');
         }
     }
+
+   
+
+    async getPrefixType() : Promise<Prefix[]> {
+        return await this.prefixRepository.find()
+    }
 }
