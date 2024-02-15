@@ -16,8 +16,8 @@ export class BloodGroupTable {
     members: Member[];
 
     
-    // @OneToOne(() => Volunteer, (volunteer) => volunteer.volunteerBloodGroup, { nullable: true })
-    // volunteer: Volunteer;
+    @OneToMany(() => Volunteer, (volunteer) => volunteer.bloodGroupTable, { nullable: true })
+    volunteers: Volunteer[];
 
 
 }

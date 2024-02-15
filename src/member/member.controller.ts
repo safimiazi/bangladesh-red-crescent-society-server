@@ -21,8 +21,7 @@ export class MemberController {
     }
   }
 
-
-  //"/api/members"
+  
   @Get()
   async getAllMembers(): Promise<{ message: string; members: Member[] }> {
     try {

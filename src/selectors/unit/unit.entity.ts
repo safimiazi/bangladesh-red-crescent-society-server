@@ -16,8 +16,8 @@ export class Unit {
     members: Member[];
 
 
-    // @OneToOne(()=> Volunteer, (volunteer)=> volunteer.volunteerUnit, {nullable: true})
-    // unit: Member;
+    @OneToMany(()=> Volunteer, (volunteer)=> volunteer.unit, {nullable: true})
+    volunteers: Volunteer[];
 
 
 }
