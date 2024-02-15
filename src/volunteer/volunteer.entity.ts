@@ -1,6 +1,6 @@
 /* eslint-disable prettier/prettier */
 
-import { Entity, Column, PrimaryGeneratedColumn, JoinColumn, OneToOne } from 'typeorm';
+import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity()
 export class Volunteer {
