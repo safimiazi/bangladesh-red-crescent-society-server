@@ -8,14 +8,6 @@ export class CreateVolunteerDto {
     @IsString()
     name: string;
 
-    @IsOptional()
-    @IsString()
-    unit: string;
-
-    @IsOptional()
-    @IsString()
-    affiliatedUpazilas: string;
-
     @IsNotEmpty()
     @IsString()
     volunteerType: string;
@@ -47,10 +39,6 @@ export class CreateVolunteerDto {
     @IsOptional()
     @IsDate()
     dob: Date;
-
-    @IsNotEmpty()
-    @IsString()
-    religion: string;
 
     @IsOptional()
     @IsDate()
