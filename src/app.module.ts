@@ -19,6 +19,7 @@ import { Religion } from './selectors/religion/religion.entity';
 import { BloodGroupModule } from './selectors/blood-group/blood-group.module';
 import { BloodGroup } from './selectors/blood-group/blood-group.entity';
 import { UpazilaModule } from './selectors/upazila/upazila.module';
+import { UpazilaTable } from './selectors/upazila/upazila.entity';
 
 @Module({
   imports: [
@@ -29,7 +30,7 @@ import { UpazilaModule } from './selectors/upazila/upazila.module';
       username: process.env.DB_USERNAME,
       password: process.env.DB_PASSWORD,
       database: process.env.DB_NAME,
-      entities: [Member, Volunteer, Dropmenu, Prefix, Unit, MemberType, Religion, BloodGroup, Prefix],
+      entities: [Member, Volunteer, Dropmenu, Prefix, Unit, MemberType, Religion, BloodGroup, Prefix, UpazilaTable],
       synchronize: true,
     }),
     TypeOrmModule.forFeature([Member, Prefix]),

@@ -1,9 +1,7 @@
 /* eslint-disable prettier/prettier */
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import { CreateUnitDto } from './create-unit-dto';
 import { Unit } from './unit.entity';
 import { UnitService } from './unit.service';
-/* eslint-disable prettier/prettier */
 import { Body, Controller, Get, HttpException, HttpStatus, Post } from '@nestjs/common';
 
 @Controller('unit')
