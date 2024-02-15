@@ -22,4 +22,11 @@ export class MemberTypeService {
             throw error;
         }
     }
+
+    async getAllMemberTypes(): Promise<MemberType[]> {
+        return await this.memberTypeRepository.find();
+    }
+
+
+
 }

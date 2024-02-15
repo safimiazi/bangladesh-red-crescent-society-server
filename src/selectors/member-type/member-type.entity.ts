@@ -1,5 +1,5 @@
 /* eslint-disable prettier/prettier */
-import { Column, Entity, OneToOne, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, ManyToMany, OneToMany, PrimaryGeneratedColumn } from "typeorm";
 import { Member } from "../../member/member.entity";
 
 @Entity()
@@ -10,7 +10,8 @@ export class MemberType {
     @Column()
     name: string;
 
-    @OneToOne(() => Member, (member) => member.memberType, { nullable: true })
-    member: Member;
+    @OneToMany(() => Member, (member) => member.memberType, { nullable: true })
+    members: Member[];
+
 }
 

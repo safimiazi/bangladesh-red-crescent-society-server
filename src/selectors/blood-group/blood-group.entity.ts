@@ -1,16 +1,23 @@
 /* eslint-disable prettier/prettier */
 import { Member } from "src/member/member.entity";
-import { Column, Entity, OneToOne, PrimaryGeneratedColumn } from "typeorm";
+import { Volunteer } from "src/volunteer/volunteer.entity";
+import { Column, Entity, ManyToMany, OneToMany, OneToOne, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity()
-export class BloodGroup {
+export class BloodGroupTable {
     @PrimaryGeneratedColumn()
     id:number;
 
     @Column()
     name: string;
 
-    @OneToOne(() => Member, (member) => member.bloodGroup, { nullable: true })
-    member: Member;
+
+    @OneToMany(() => Member, (member) => member.bloodGroupTable, { nullable: true })
+    members: Member[];
+
+    
+    // @OneToOne(() => Volunteer, (volunteer) => volunteer.volunteerBloodGroup, { nullable: true })
+    // volunteer: Volunteer;
+
 
 }

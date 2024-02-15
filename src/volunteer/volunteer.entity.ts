@@ -1,6 +1,6 @@
 /* eslint-disable prettier/prettier */
 
-import { Entity, Column, PrimaryGeneratedColumn, OneToOne, JoinColumn } from 'typeorm';
+import { Entity, Column, PrimaryGeneratedColumn, JoinColumn, OneToOne } from 'typeorm';
 
 @Entity()
 export class Volunteer {
@@ -84,5 +84,14 @@ export class Volunteer {
 
     @Column({ nullable: true })
     resourceType: string;
+
+    
+  // @OneToOne(()=> BloodGroup, {eager:true, nullable: true, cascade: true, onDelete: "CASCADE"})
+  // @JoinColumn()
+  // volunteerBloodGroup: BloodGroup;
+
+  // @OneToOne(()=> Unit, {eager:true, nullable:true, cascade: true, onDelete: "CASCADE"})
+  // @JoinColumn()
+  // volunteerUnit: Unit;
 
 }

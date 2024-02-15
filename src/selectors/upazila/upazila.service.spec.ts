@@ -1,15 +1,16 @@
+/* eslint-disable prettier/prettier */
 import { Test, TestingModule } from '@nestjs/testing';
-import { DropmenuService } from './dropmenu.service';
+import { UpazilaService } from './upazila.service';
 
-describe('DropmenuService', () => {
-  let service: DropmenuService;
+describe('UpazilaService', () => {
+  let service: UpazilaService;
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
-      providers: [DropmenuService],
+      providers: [UpazilaService],
     }).compile();
 
-    service = module.get<DropmenuService>(DropmenuService);
+    service = module.get<UpazilaService>(UpazilaService);
   });
 
   it('should be defined', () => {

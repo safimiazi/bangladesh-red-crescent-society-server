@@ -1,11 +1,12 @@
 /* eslint-disable prettier/prettier */
 
-import { Entity, Column, PrimaryGeneratedColumn, OneToOne, JoinColumn } from 'typeorm';
+import { Entity, Column, PrimaryGeneratedColumn, JoinColumn, ManyToOne } from 'typeorm';
 import { MemberType } from '../selectors/member-type/member-type.entity';
 import { Prefix } from '../selectors/prefix/prefix.entity';
-import { Unit } from 'src/selectors/unit/unit.entity';
-import { Religion } from 'src/selectors/religion/religion.entity';
-import { BloodGroup } from 'src/selectors/blood-group/blood-group.entity';
+import { Unit } from '../selectors/unit/unit.entity';
+import { Religion } from '../selectors/religion/religion.entity';
+import { BloodGroupTable } from '../selectors/blood-group/blood-group.entity';
+import { UpazilaTable } from 'src/selectors/upazila/upazila.entity';
 
 @Entity()
 export class Member {
@@ -90,43 +91,28 @@ export class Member {
   @Column()
   isFemale: boolean;
 
-  @Column({ nullable: true })
-  selectedMemberType: string;
+  @ManyToOne(() => UpazilaTable, (upazilaTable) => upazilaTable.members)
+  @JoinColumn()
+  upazilaTable: UpazilaTable;
 
-  @Column({ nullable: true })
-  selectedPrefixType: string;
-
-  @Column({ nullable: true })
-  selectedUnitType: string;
-
-  @Column({ nullable: true })
-  selectedUpazilaType: string;
-
-  @Column({ nullable: true })
-  selectedBloodType: string;
-
-  @Column({ nullable: true })
-  selectedReligionType: string;
-
-  @OneToOne(() => MemberType, {eager:true, nullable:true, cascade: true, onDelete: "CASCADE"})
+  @ManyToOne(() => MemberType, (memberType) => memberType.members)
   @JoinColumn()
   memberType: MemberType;
 
-  @OneToOne(()=> Prefix, {eager:true, nullable:true, cascade: true, onDelete: "CASCADE"})
+  @ManyToOne(() => Prefix, (prefix)=> prefix.member)
   @JoinColumn()
   prefix: Prefix;
 
-  @OneToOne(()=> Unit, {eager:true, nullable:true, cascade: true, onDelete: "CASCADE"})
+  @ManyToOne(() => Unit, (unit) => unit.members)
   @JoinColumn()
   unit: Unit;
 
-
-  @OneToOne(()=> Religion, {eager:true, nullable: true, cascade: true, onDelete: "CASCADE"})
+  @ManyToOne(()=> Religion, (religion)=> religion.members)
   @JoinColumn()
   religion: Religion;
 
-  @OneToOne(()=> BloodGroup, {eager:true, nullable: true, cascade: true, onDelete: "CASCADE"})
+  @ManyToOne(() => BloodGroupTable, (bloodGroupTable) => bloodGroupTable.members)
   @JoinColumn()
-  bloodGroup: BloodGroup;
+  bloodGroupTable: BloodGroupTable;
 
 };

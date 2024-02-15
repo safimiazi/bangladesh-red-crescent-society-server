@@ -1,6 +1,7 @@
 /* eslint-disable prettier/prettier */
 import { Member } from "src/member/member.entity";
-import { Column, Entity, OneToOne, PrimaryGeneratedColumn } from "typeorm";
+import { Volunteer } from "src/volunteer/volunteer.entity";
+import { Column, Entity, ManyToOne, OneToMany, OneToOne, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity()
 
@@ -11,8 +12,12 @@ export class Unit {
     @Column()
     name: string;
 
-    @OneToOne(()=> Member, (member)=> member.unit, {nullable: true})
-    member: Member;
+    @OneToMany(()=> Member, (member)=> member.unit, {nullable: true})
+    members: Member[];
+
+
+    // @OneToOne(()=> Volunteer, (volunteer)=> volunteer.volunteerUnit, {nullable: true})
+    // unit: Member;
 
 
 }

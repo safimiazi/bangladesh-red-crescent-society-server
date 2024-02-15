@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import { Module } from '@nestjs/common';
 import { ReligionController } from './religion.controller';
 import { ReligionService } from './religion.service';
