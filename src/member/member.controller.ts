@@ -10,9 +10,9 @@ export class MemberController {
   constructor(private readonly memberService: MemberService) { }
 
   @Post()
-  async createMember(@Body() createMemberDto: CreateMemberDto): Promise<{ message: string, member: Member }> {
+  async createUser(@Body() createMemberDto: CreateMemberDto): Promise<{ message: string, member: Member }> {
     try {
-      const member = await this.memberService.createMember(createMemberDto);
+      const member = await this.memberService.createUser(createMemberDto);
       console.log(member);
       return { message: 'User created successfully', member };
     } catch (error) {

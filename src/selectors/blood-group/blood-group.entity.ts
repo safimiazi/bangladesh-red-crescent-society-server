@@ -10,7 +10,7 @@ export class BloodGroup {
     @Column()
     name: string;
 
-
     @OneToOne(() => Member, (member) => member.bloodGroup, { nullable: true })
     member: Member;
+
 }

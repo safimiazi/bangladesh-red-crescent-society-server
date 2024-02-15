@@ -12,4 +12,5 @@ export class Religion {
 
     @OneToOne(()=> Member, (member)=> member.religion, { nullable: true})
     member: Member;
+    
 }

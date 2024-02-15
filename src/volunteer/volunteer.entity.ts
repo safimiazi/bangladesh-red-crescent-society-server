@@ -1,6 +1,6 @@
 /* eslint-disable prettier/prettier */
 
-import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
+import { Entity, Column, PrimaryGeneratedColumn, OneToOne, JoinColumn } from 'typeorm';
 
 @Entity()
 export class Volunteer {
@@ -10,10 +10,10 @@ export class Volunteer {
     @Column()
     name: string;
 
-    @Column({nullable: true})
+    @Column({ nullable: true })
     unit: string;
 
-    @Column({nullable: true})
+    @Column({ nullable: true })
     affiliatedUpazilas: string;
 
     @Column()
@@ -40,22 +40,19 @@ export class Volunteer {
     @Column({ nullable: true })
     dob: Date;
 
-    // @Column()
-    // religion: string;
-
     @Column()
-    bloodGroup: string;
+    religion: string;
 
-    @Column({nullable: true})
+    @Column({ nullable: true })
     joiningDate: Date;
 
-    @Column({nullable: true})
+    @Column({ nullable: true })
     mobileNo: string;
 
-    @Column({nullable: true})
+    @Column({ nullable: true })
     emergencyContactNo: number;
 
-    @Column({nullable: true})
+    @Column({ nullable: true })
     email: string;
 
     @Column({ nullable: true })

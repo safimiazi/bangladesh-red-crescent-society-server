@@ -10,6 +10,7 @@ import { Volunteer } from './volunteer.entity';
     TypeOrmModule.forFeature([Volunteer]),
   ],
   controllers: [VolunteerController],
-  providers: [VolunteerService]
+  providers: [VolunteerService],
+  exports: [VolunteerService],
 })
 export class VolunteerModule {}
