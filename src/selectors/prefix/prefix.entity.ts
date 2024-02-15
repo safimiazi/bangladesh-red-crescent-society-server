@@ -1,15 +1,15 @@
 /* eslint-disable prettier/prettier */
-import { Column, Entity, OneToOne, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, ManyToOne, OneToMany, OneToOne, PrimaryGeneratedColumn } from "typeorm";
 import { Member } from "../../member/member.entity";
 
 @Entity()
 export class Prefix {
     @PrimaryGeneratedColumn()
-    id:number;
+    id: number;
 
     @Column()
     name: string;
 
-    // @OneToOne(()=> Member, (member)=> member.prefix , {nullable: true})
-    // member:Member;
+    @OneToMany(() => Member, (member) => member.prefix, { nullable: true })
+    member: Member;
 }

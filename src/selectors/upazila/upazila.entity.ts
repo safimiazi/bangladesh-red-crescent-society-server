@@ -1,5 +1,6 @@
 /* eslint-disable prettier/prettier */
-import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { Member } from "src/member/member.entity";
+import { Column, Entity, ManyToOne, OneToMany, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity()
 export class UpazilaTable {
@@ -8,4 +9,7 @@ export class UpazilaTable {
 
     @Column()
     name: string;
+
+    @OneToMany(() => Member, (member) => member.upazilaTable)
+    members: Member[];
 }

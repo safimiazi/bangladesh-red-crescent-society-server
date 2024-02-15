@@ -1,7 +1,7 @@
 /* eslint-disable prettier/prettier */
 import { Member } from "src/member/member.entity";
 import { Volunteer } from "src/volunteer/volunteer.entity";
-import { Column, Entity, OneToOne, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, ManyToMany, OneToMany, OneToOne, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity()
 export class BloodGroupTable {
@@ -12,8 +12,8 @@ export class BloodGroupTable {
     name: string;
 
 
-    // @OneToOne(() => Member, (member) => member.bloodGroup, { nullable: true })
-    // member: Member;
+    @OneToMany(() => Member, (member) => member.bloodGroupTable, { nullable: true })
+    members: Member[];
 
     
     // @OneToOne(() => Volunteer, (volunteer) => volunteer.volunteerBloodGroup, { nullable: true })

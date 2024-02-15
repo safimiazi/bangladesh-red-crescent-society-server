@@ -12,10 +12,10 @@ export class MemberService {
     private readonly memberRepository: Repository<Member>,
   ) {}
 
-  async createMember(memberData: Partial<Member>): Promise<Member> {
-    const member = this.memberRepository.create(memberData);
-    console.log(member);
-    return await this.memberRepository.save(member);
+  async createUser(memberData: Partial<Member>): Promise<Member> {
+    const user = this.memberRepository.create(memberData);
+    console.log(user);
+    return await this.memberRepository.save(user);
   }
 
 

@@ -38,7 +38,6 @@ export class CreateMemberDto {
   @IsString()
   Occupation?: string;
 
-
   @IsOptional()
   @IsBoolean()
   isAlive?: boolean;
@@ -65,33 +64,9 @@ export class CreateMemberDto {
 
   @IsOptional()
   @IsString()
-  selectedPrefixType: string;
-
-  @IsOptional()
-  @IsString()
-  selectedUnitType: string;
-
-  @IsOptional()
-  @IsString()
   contactNo: string;
 
   @IsOptional()
   @IsString()
-  selectedUpazilaType: string;
-
-  @IsOptional()
-  @IsString()
-  selectedBloodType: string;
-
-  @IsOptional()
-  @IsString()
-  selectedReligionType: string;
-
-  @IsOptional()
-  @IsString()
   emergencyContactNo: string;
-
- @IsNotEmpty()
- memberTypeId: number
-
 }

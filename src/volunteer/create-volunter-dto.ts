@@ -52,10 +52,6 @@ export class CreateVolunteerDto {
     @IsString()
     religion: string;
 
-    @IsNotEmpty()
-    @IsString()
-    bloodGroup: string;
-
     @IsOptional()
     @IsDate()
     joiningDate: Date;
