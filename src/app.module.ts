@@ -18,6 +18,7 @@ import { BloodGroupModule } from './selectors/blood-group/blood-group.module';
 import { UpazilaModule } from './selectors/upazila/upazila.module';
 import { UpazilaTable } from './selectors/upazila/upazila.entity';
 import { BloodGroupTable } from './selectors/blood-group/blood-group.entity';
+import { MemberRoleModule } from './selectors/member-role/member-role.module';
 
 @Module({
   imports: [
@@ -39,6 +40,7 @@ import { BloodGroupTable } from './selectors/blood-group/blood-group.entity';
     ReligionModule,
     BloodGroupModule,
     UpazilaModule,
+    MemberRoleModule,
   ],
   controllers: [MemberController],
   providers: [MemberService],

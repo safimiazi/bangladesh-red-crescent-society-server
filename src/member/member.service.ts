@@ -20,12 +20,18 @@ export class MemberService {
 
 
   async getAllMembers(): Promise<Member[]> {
-    return await this.memberRepository.find();
+    return await this.memberRepository.find({relations: [
+      'upazilaTable',
+      'memberType',
+      'prefix',
+      'unit',
+      'religion',
+      'bloodGroupTable',
+      // Add more relations as needed
+    ],});
   }
 
 
-  async findAllMember(): Promise<Member[]> {
-    return this.memberRepository.find({ relations: ["memberType"] });
-}
+
  
 }

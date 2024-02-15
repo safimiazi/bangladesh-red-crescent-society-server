@@ -1,6 +1,6 @@
 /* eslint-disable prettier/prettier */
 
-import { Body, Controller, Post, HttpException, HttpStatus, Get, Query, Res } from '@nestjs/common';
+import { Body, Controller, Post, HttpException, HttpStatus, Get} from '@nestjs/common';
 import { MemberService } from './member.service';
 import { CreateMemberDto } from './create-member.dto';
 import { Member } from './member.entity';
@@ -37,11 +37,7 @@ export class MemberController {
   }
 
 
-  @Get('members') // Adjusted the path here
-    async findAllMember(): Promise<Member[]> {
-        return this.memberService.findAllMember();
-    }
-
+ 
 
 
 }
