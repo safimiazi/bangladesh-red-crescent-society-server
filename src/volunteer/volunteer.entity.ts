@@ -1,6 +1,10 @@
 /* eslint-disable prettier/prettier */
 
-import { Entity, Column, PrimaryGeneratedColumn, JoinColumn, OneToOne } from 'typeorm';
+import { BloodGroupTable } from 'src/selectors/blood-group/blood-group.entity';
+import { Religion } from 'src/selectors/religion/religion.entity';
+import { Unit } from 'src/selectors/unit/unit.entity';
+import { UpazilaTable } from 'src/selectors/upazila/upazila.entity';
+import { Entity, Column, PrimaryGeneratedColumn, JoinColumn, ManyToOne } from 'typeorm';
 
 @Entity()
 export class Volunteer {
@@ -9,12 +13,6 @@ export class Volunteer {
 
     @Column()
     name: string;
-
-    @Column({ nullable: true })
-    unit: string;
-
-    @Column({ nullable: true })
-    affiliatedUpazilas: string;
 
     @Column()
     volunteerType: string;
@@ -39,9 +37,6 @@ export class Volunteer {
 
     @Column({ nullable: true })
     dob: Date;
-
-    @Column()
-    religion: string;
 
     @Column({ nullable: true })
     joiningDate: Date;
@@ -86,12 +81,20 @@ export class Volunteer {
     resourceType: string;
 
     
-  // @OneToOne(()=> BloodGroup, {eager:true, nullable: true, cascade: true, onDelete: "CASCADE"})
-  // @JoinColumn()
-  // volunteerBloodGroup: BloodGroup;
+  @ManyToOne(() => BloodGroupTable, (bloodGroupTable) => bloodGroupTable.volunteers, {eager:true, nullable: true, cascade: true, onDelete: "CASCADE"})
+  @JoinColumn()
+  bloodGroupTable: BloodGroupTable;
 
-  // @OneToOne(()=> Unit, {eager:true, nullable:true, cascade: true, onDelete: "CASCADE"})
-  // @JoinColumn()
-  // volunteerUnit: Unit;
+  @ManyToOne(() => Unit, (unit) => unit.volunteers, {eager:true, nullable:true, cascade: true, onDelete: "CASCADE"})
+  @JoinColumn()
+  unit: Unit;
+
+  @ManyToOne(()=> UpazilaTable, (upazilaTable)=> upazilaTable.volunteers, {eager:true, nullable:true, cascade: true, onDelete: "CASCADE"})
+  @JoinColumn()
+  upazilaTable: UpazilaTable;
+
+  @ManyToOne(() => Religion, (religion) => religion.volunteers, {eager:true, nullable:true, cascade: true, onDelete: "CASCADE"})
+  @JoinColumn()
+  religion: Religion;
 
 }
