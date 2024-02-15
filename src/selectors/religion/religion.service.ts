@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Religion } from './religion.entity';
@@ -21,4 +22,10 @@ export class ReligionService {
             throw error;
         }
     }
+
+async getAllReligion() : Promise<Religion[]> {
+    return await this.religionRepository.find()
+}
+
+
 }
