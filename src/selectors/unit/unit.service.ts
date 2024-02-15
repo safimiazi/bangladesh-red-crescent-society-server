@@ -23,4 +23,9 @@ export class UnitService {
             throw error;
         }
     }
+
+
+    async getAllUnit(): Promise<Unit[]> {
+        return await this.unitRepository.find()
+    }
 }
