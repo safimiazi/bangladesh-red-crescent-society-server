@@ -83,6 +83,9 @@ export class Member {
   @Column()
   isFemale: boolean;
 
+  @Column()
+  image: string;
+
   @ManyToOne(() => UpazilaTable, (upazilaTable) => upazilaTable.members)
   @JoinColumn()
   upazilaTable: UpazilaTable;

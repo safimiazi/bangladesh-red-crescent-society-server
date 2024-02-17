@@ -57,4 +57,7 @@ export class CreateMemberDto {
   @IsOptional()
   @IsString()
   emergencyContactNo: string;
+
+  image: string;
+
 }

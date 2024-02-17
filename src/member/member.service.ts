@@ -28,7 +28,6 @@ export class MemberService {
       'religion',
       'bloodGroupTable',
       "memberRoleTable"
-      // Add more relations as needed
     ],});
   }
 
