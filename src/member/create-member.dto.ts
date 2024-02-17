@@ -12,17 +12,17 @@ export class CreateMemberDto {
   @IsString()
   memberIdCard: string;
 
-  @IsNotEmpty()
+  @IsOptional()
   enrollmentDate: Date;
 
-  @IsNotEmpty()
+  @IsOptional()
   birthDate: Date;
 
-  @IsNotEmpty()
+  @IsOptional()
   @IsEmail()
   email: string;
 
-  @IsNotEmpty()
+  @IsOptional()
   @IsString()
   motherName: string;
 
