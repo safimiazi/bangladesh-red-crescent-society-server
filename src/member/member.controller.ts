@@ -1,17 +1,34 @@
 /* eslint-disable prettier/prettier */
 
-import { Body, Controller, Post, HttpException, HttpStatus, Get} from '@nestjs/common';
+import { Body, Controller, Post, HttpException, HttpStatus, Get, UseInterceptors, UploadedFile } from '@nestjs/common';
 import { MemberService } from './member.service';
 import { CreateMemberDto } from './create-member.dto';
 import { Member } from './member.entity';
+import { FileInterceptor } from '@nestjs/platform-express';
+import { diskStorage } from 'multer';
+import * as path from 'path'
 
 @Controller('members')
 export class MemberController {
   constructor(private readonly memberService: MemberService) { }
 
   @Post()
-  async createUser(@Body() createMemberDto: CreateMemberDto): Promise<{ message: string, member: Member }> {
+  @UseInterceptors(FileInterceptor('image', {
+    storage: diskStorage({
+      destination: './uploads/members/images',
+      filename: (req, file, cb) => {
+        const sanitizedFilename = file.originalname.replace(/\\/g, '/');
+        const filename = sanitizedFilename + Math.round(Math.random() * 1E9);
+        const fileExtension = path.extname(file.originalname);
+        const newFileName = `${filename}${fileExtension}`;
+        cb(null, newFileName);
+      }
+    })
+  }))
+  async createUser(@UploadedFile() image: Express.Multer.File, @Body() createMemberDto: CreateMemberDto): Promise<{ message: string, member: Member }> {
     try {
+      createMemberDto.image = image.path.replace(/\\/g, '/');
+      console.log('from controller 2', image);
       const member = await this.memberService.createUser(createMemberDto);
       console.log(member);
       return { message: 'User created successfully', member };
@@ -21,7 +38,7 @@ export class MemberController {
     }
   }
 
-  
+
   @Get()
   async getAllMembers(): Promise<{ message: string; members: Member[] }> {
     try {
@@ -35,9 +52,4 @@ export class MemberController {
       );
     }
   }
-
-
- 
-
-
 }
