@@ -44,18 +44,6 @@ export class CreateMemberDto {
 
   @IsOptional()
   @IsBoolean()
-  isManagingBoardMember?: boolean;
-
-  @IsOptional()
-  @IsBoolean()
-  isUnitExecutiveCommitteeMember?: boolean;
-
-  @IsOptional()
-  @IsBoolean()
-  isChairman?: boolean;
-
-  @IsOptional()
-  @IsBoolean()
   isMale?: boolean;
 
   @IsOptional()

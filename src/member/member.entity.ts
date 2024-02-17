@@ -1,12 +1,13 @@
 /* eslint-disable prettier/prettier */
 
-import { Entity, Column, PrimaryGeneratedColumn, JoinColumn, ManyToOne } from 'typeorm';
+import { Entity, Column, PrimaryGeneratedColumn, JoinColumn, ManyToOne, ManyToMany, JoinTable } from 'typeorm';
 import { MemberType } from '../selectors/member-type/member-type.entity';
 import { Prefix } from '../selectors/prefix/prefix.entity';
 import { Unit } from '../selectors/unit/unit.entity';
 import { Religion } from '../selectors/religion/religion.entity';
 import { BloodGroupTable } from '../selectors/blood-group/blood-group.entity';
 import { UpazilaTable } from 'src/selectors/upazila/upazila.entity';
+import { MemberRoleTable } from 'src/selectors/member-role/member-role.entity';
 
 @Entity()
 export class Member {
@@ -77,15 +78,6 @@ export class Member {
   isAlive: boolean;
 
   @Column()
-  isManagingBoardMember: boolean;
-
-  @Column()
-  isUnitExecutiveCommitteeMember: boolean;
-
-  @Column()
-  isChairman: boolean;
-
-  @Column()
   isMale: boolean;
 
   @Column()
@@ -114,5 +106,9 @@ export class Member {
   @ManyToOne(() => BloodGroupTable, (bloodGroupTable) => bloodGroupTable.members)
   @JoinColumn()
   bloodGroupTable: BloodGroupTable;
+
+  @ManyToMany(() => MemberRoleTable, (memberRoleTable) => memberRoleTable.members)
+  @JoinTable()
+  memberRoleTable: MemberRoleTable[];
 
 };

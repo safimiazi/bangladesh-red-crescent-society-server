@@ -1,13 +1,8 @@
 /* eslint-disable prettier/prettier */
-import { IsBoolean } from "class-validator";
+import { IsNotEmpty, IsString } from "class-validator";
 
 export class CreateMemberRoleDto {
-    @IsBoolean()
-    managingBoard: boolean;
-
-    @IsBoolean()
-    unitExecutive: boolean;
-
-    @IsBoolean()
-    chairman: boolean;
+    @IsNotEmpty()
+    @IsString()
+    name: string;
 }
