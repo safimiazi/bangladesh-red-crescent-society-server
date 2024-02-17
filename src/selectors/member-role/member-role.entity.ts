@@ -16,4 +16,4 @@ export class MemberRoleTable {
 
   @Column({ type: 'boolean', default: false })
   chairman: boolean;
-}
+};
