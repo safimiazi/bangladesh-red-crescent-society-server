@@ -16,7 +16,7 @@ export class VolunteerController {
   @Post()
   @UseInterceptors(FileInterceptor('image', {
     storage: diskStorage({
-      destination: './uploads/members/images',
+      destination: './uploads/volunteers/images',
       filename: (req, file, cb) => {
         const sanitizedFilename = file.originalname.replace(/\\/g, '/');
         const filename = sanitizedFilename + Math.round(Math.random() * 1E9);
