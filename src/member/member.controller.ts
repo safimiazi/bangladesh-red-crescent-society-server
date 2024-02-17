@@ -17,6 +17,7 @@ export class MemberController {
     storage: diskStorage({
       destination: './uploads/members/images',
       filename: (req, file, cb) => {
+        console.log('file from filename',file);
         const sanitizedFilename = file.originalname.replace(/\\/g, '/');
         const filename = sanitizedFilename + Math.round(Math.random() * 1E9);
         const fileExtension = path.extname(file.originalname);
@@ -27,6 +28,8 @@ export class MemberController {
   }))
   async createUser(@UploadedFile() image: Express.Multer.File, @Body() createMemberDto: CreateMemberDto): Promise<{ message: string, member: Member }> {
     try {
+      console.log('Request Body:', createMemberDto);
+      console.log('image',image);
       createMemberDto.image = image?.path.replace(/\\/g, '/');
       console.log('from controller 2', image);
       const member = await this.memberService.createUser(createMemberDto);

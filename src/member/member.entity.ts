@@ -29,7 +29,7 @@ export class Member {
   @Column()
   email: string;
 
-  @Column()
+  @Column({nullable: true})
   motherName: string;
 
   @Column({ nullable: true })
@@ -59,7 +59,7 @@ export class Member {
   @Column({ nullable: true })
   contactNo: string;
 
-  @Column()
+  @Column({ nullable: true })
   fatherName: string;
 
   @Column({ nullable: true })
@@ -74,13 +74,13 @@ export class Member {
   @Column({ nullable: true })
   projectActivities: string;
 
-  @Column()
+  @Column({ nullable: true })
   isAlive: boolean;
 
-  @Column()
+  @Column({ nullable: true })
   isMale: boolean;
 
-  @Column()
+  @Column({ nullable: true })
   isFemale: boolean;
 
   @Column({nullable: true})
