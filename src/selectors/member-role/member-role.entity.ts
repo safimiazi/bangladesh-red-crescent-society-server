@@ -1,19 +1,28 @@
 /* eslint-disable prettier/prettier */
 // src/entities/CheckboxCapture.entity.ts
 
-import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
+import { Member } from 'src/member/member.entity';
+import { Entity, PrimaryGeneratedColumn, Column, ManyToMany } from 'typeorm';
 
 @Entity()
 export class MemberRoleTable {
+
   @PrimaryGeneratedColumn()
-  id: number;
+  id:number;
 
-  @Column({ type: 'boolean', default: false })
-  managingBoard: boolean;
+  @Column()
+  name: string;
 
-  @Column({ type: 'boolean', default: false })
-  unitExecutive: boolean;
+  // @Column({ type: 'boolean', default: false })
+  // managingBoard: boolean;
 
-  @Column({ type: 'boolean', default: false })
-  chairman: boolean;
+  // @Column({ type: 'boolean', default: false })
+  // unitExecutive: boolean;
+
+  // @Column({ type: 'boolean', default: false })
+  // chairman: boolean;
+
+  @ManyToMany(() => Member, (member) => member.memberRoleTable)
+
+members: Member[];
 };
