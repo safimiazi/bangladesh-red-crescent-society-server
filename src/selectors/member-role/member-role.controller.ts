@@ -14,7 +14,7 @@ export class MemberRoleController {
         try {
             const memberRole = await this.memberRoleService.createMemberRole(createMemberRoleDto);
             console.log(memberRole);
-            return { message: "BloodGroup created successfully", memberRoleTable: memberRole };
+            return { message: "member role created successfully", memberRoleTable: memberRole };
         } catch (error) {
             console.log(error);
             throw new HttpException({ message: "An unexpected error occurred." }, HttpStatus.INTERNAL_SERVER_ERROR)
