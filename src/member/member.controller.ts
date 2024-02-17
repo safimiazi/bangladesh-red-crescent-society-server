@@ -27,7 +27,7 @@ export class MemberController {
   }))
   async createUser(@UploadedFile() image: Express.Multer.File, @Body() createMemberDto: CreateMemberDto): Promise<{ message: string, member: Member }> {
     try {
-      createMemberDto.image = image.path.replace(/\\/g, '/');
+      createMemberDto.image = image?.path.replace(/\\/g, '/');
       console.log('from controller 2', image);
       const member = await this.memberService.createUser(createMemberDto);
       console.log(member);

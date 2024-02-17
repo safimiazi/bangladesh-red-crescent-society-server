@@ -8,21 +8,12 @@ import { Entity, PrimaryGeneratedColumn, Column, ManyToMany } from 'typeorm';
 export class MemberRoleTable {
 
   @PrimaryGeneratedColumn()
-  id:number;
+  id: number;
 
   @Column()
   name: string;
 
-  // @Column({ type: 'boolean', default: false })
-  // managingBoard: boolean;
+  @ManyToMany(() => Member, (member) => member.memberRoleTable, {nullable: true})
+  members: Member[];
 
-  // @Column({ type: 'boolean', default: false })
-  // unitExecutive: boolean;
-
-  // @Column({ type: 'boolean', default: false })
-  // chairman: boolean;
-
-  @ManyToMany(() => Member, (member) => member.memberRoleTable)
-
-members: Member[];
 };

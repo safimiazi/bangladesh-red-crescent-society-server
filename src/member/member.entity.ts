@@ -83,7 +83,7 @@ export class Member {
   @Column()
   isFemale: boolean;
 
-  @Column()
+  @Column({nullable: true})
   image: string;
 
   @ManyToOne(() => UpazilaTable, (upazilaTable) => upazilaTable.members)
@@ -110,7 +110,7 @@ export class Member {
   @JoinColumn()
   bloodGroupTable: BloodGroupTable;
 
-  @ManyToMany(() => MemberRoleTable, (memberRoleTable) => memberRoleTable.members)
+  @ManyToMany(() => MemberRoleTable, (memberRoleTable) => memberRoleTable.members, {nullable: true})
   @JoinTable()
   memberRoleTable: MemberRoleTable[];
 
