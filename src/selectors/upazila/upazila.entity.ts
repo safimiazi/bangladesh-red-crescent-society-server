@@ -8,12 +8,12 @@ export class UpazilaTable {
     @PrimaryGeneratedColumn()
     id: number;
 
-    @Column()
+    @Column({ nullable: true })
     name: string;
 
     @OneToMany(() => Member, (member) => member.upazilaTable)
     members: Member[];
 
-    @OneToMany(() => Volunteer, (volunteer) => volunteer.upazilaTable)
+    @OneToMany(() => Volunteer, (volunteer) => volunteer.upazilaTable, { nullable: true })
     volunteers: Volunteer[];
 }

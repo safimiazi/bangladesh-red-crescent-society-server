@@ -28,6 +28,7 @@ export class VolunteerController {
   }))
   async createDropmenu(@UploadedFile() image: Express.Multer.File, @Body() createVolunteerDto: CreateVolunteerDto): Promise<{ message: string, volunteer: Volunteer }> {
     try {
+      console.log('body', createVolunteerDto);
       createVolunteerDto.image = image.path.replace(/\\/g, '/');
       console.log('from controller 2', image);
       const volunteer = await this.volunteerService.createVolunteer(createVolunteerDto);
