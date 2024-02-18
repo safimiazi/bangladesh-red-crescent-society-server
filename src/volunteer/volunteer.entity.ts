@@ -80,7 +80,7 @@ export class Volunteer {
   @Column({ nullable: true })
   resourceType: string;
 
-  @Column()
+  @Column({nullable:true})
   image: string;
 
   @ManyToOne(() => BloodGroupTable, (bloodGroupTable) => bloodGroupTable.volunteers, { eager: true, nullable: true, cascade: true, onDelete: "CASCADE" })

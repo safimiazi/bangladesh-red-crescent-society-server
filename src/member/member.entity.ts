@@ -14,10 +14,10 @@ export class Member {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Column()
+  @Column({ nullable: true })
   name: string;
 
-  @Column()
+  @Column({ nullable: true })
   memberIdCard: string;
 
   @Column({ nullable: true })
@@ -26,10 +26,10 @@ export class Member {
   @Column({ nullable: true })
   birthDate: Date;
 
-  @Column()
+  @Column({ nullable: true })
   email: string;
 
-  @Column({nullable: true})
+  @Column({ nullable: true })
   motherName: string;
 
   @Column({ nullable: true })
@@ -106,7 +106,7 @@ export class Member {
   @JoinColumn()
   religion: Religion;
 
-  @ManyToOne(() => BloodGroupTable, (bloodGroupTable) => bloodGroupTable.members)
+  @ManyToOne(() => BloodGroupTable, (bloodGroupTable) => bloodGroupTable.members,  {nullable: true})
   @JoinColumn()
   bloodGroupTable: BloodGroupTable;
 
