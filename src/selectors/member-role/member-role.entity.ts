@@ -22,7 +22,7 @@ export class MemberRoleTable {
   // @Column({ type: 'boolean', default: false })
   // chairman: boolean;
 
-  @ManyToMany(() => Member, (member) => member.memberRoleTable)
+  @ManyToMany(() => Member, (member) => member.memberRoleTable, {nullable: true})
 
 members: Member[];
 };
