@@ -86,15 +86,15 @@ export class Member {
   @Column({nullable: true})
   image: string;
 
-  @ManyToOne(() => UpazilaTable, (upazilaTable) => upazilaTable.members)
+  @ManyToOne(() => UpazilaTable, (upazilaTable) => upazilaTable.members, { nullable: true })
   @JoinColumn()
   upazilaTable: UpazilaTable;
 
-  @ManyToOne(() => MemberType, (memberType) => memberType.members)
+  @ManyToOne(() => MemberType, (memberType) => memberType.members, { nullable: true })
   @JoinColumn()
   memberType: MemberType;
 
-  @ManyToOne(() => Prefix, (prefix)=> prefix.member)
+  @ManyToOne(() => Prefix, (prefix) => prefix.member, { nullable: true })
   @JoinColumn()
   prefix: Prefix;
 
@@ -102,7 +102,7 @@ export class Member {
   @JoinColumn()
   unit: Unit;
 
-  @ManyToOne(()=> Religion, (religion)=> religion.members)
+  @ManyToOne(() => Religion, (religion) => religion.members, { nullable: true })
   @JoinColumn()
   religion: Religion;
 

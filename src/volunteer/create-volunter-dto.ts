@@ -1,7 +1,7 @@
 /* eslint-disable prettier/prettier */
 
 
-import { IsDate, IsEmail, IsNotEmpty, IsNumber, IsOptional, IsString } from 'class-validator';
+import { IsBoolean, IsDate, IsEmail, IsNotEmpty, IsNumber, IsOptional, IsString } from 'class-validator';
 
 export class CreateVolunteerDto {
     @IsNotEmpty()
@@ -20,9 +20,21 @@ export class CreateVolunteerDto {
     @IsString()
     volunteerPosition: string;
 
-    @IsNotEmpty()
-    @IsString()
-    gender: string;
+    @IsOptional()
+    @IsBoolean()
+    isMale?: boolean;
+
+    @IsOptional()
+    @IsBoolean()
+    isFemale?: boolean;
+
+    @IsOptional()
+    @IsBoolean()
+    ismarried?: boolean;
+
+    @IsOptional()
+    @IsBoolean()
+    isunmarried?: boolean;
 
     @IsOptional()
     @IsString()
@@ -96,5 +108,7 @@ export class CreateVolunteerDto {
     @IsString()
     resourceType: string;
 
+    @IsOptional()
+    @IsString()
     image: string;
 }

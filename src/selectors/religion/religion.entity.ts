@@ -8,7 +8,7 @@ export class Religion {
     @PrimaryGeneratedColumn()
     id: number;
 
-    @Column()
+    @Column({nullable: true})
     name: string;
 
     @OneToMany(()=> Member, (member)=> member.religion, { nullable: true})

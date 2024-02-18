@@ -14,17 +14,26 @@ export class Volunteer {
   @Column()
   name: string;
 
-  @Column()
+  @Column({nullable: true})
   volunteerType: string;
 
-  @Column()
+  @Column({ nullable: true })
   volunteerId: number;
 
   @Column()
   volunteerPosition: string;
 
-  @Column()
-  gender: string;
+  @Column({ nullable: true })
+  ismarried: boolean;
+
+  @Column({ nullable: true })
+  isunmarried: boolean;
+
+  @Column({ nullable: true })
+  isMale: boolean;
+
+  @Column({ nullable: true })
+  isFemale: boolean;
 
   @Column({ nullable: true })
   registrationNo: string;
@@ -83,19 +92,19 @@ export class Volunteer {
   @Column({nullable:true})
   image: string;
 
-  @ManyToOne(() => BloodGroupTable, (bloodGroupTable) => bloodGroupTable.volunteers, { eager: true, nullable: true, cascade: true, onDelete: "CASCADE" })
+  @ManyToOne(() => BloodGroupTable, (bloodGroupTable) => bloodGroupTable.volunteers, {nullable: true})
   @JoinColumn()
   bloodGroupTable: BloodGroupTable;
 
-  @ManyToOne(() => Unit, (unit) => unit.volunteers, { eager: true, nullable: true, cascade: true, onDelete: "CASCADE" })
+  @ManyToOne(() => Unit, (unit) => unit.volunteers, {nullable: true})
   @JoinColumn()
   unit: Unit;
 
-  @ManyToOne(() => UpazilaTable, (upazilaTable) => upazilaTable.volunteers, { eager: true, nullable: true, cascade: true, onDelete: "CASCADE" })
+  @ManyToOne(() => UpazilaTable, (upazilaTable) => upazilaTable.volunteers, {nullable: true})
   @JoinColumn()
   upazilaTable: UpazilaTable;
 
-  @ManyToOne(() => Religion, (religion) => religion.volunteers, { eager: true, nullable: true, cascade: true, onDelete: "CASCADE" })
+  @ManyToOne(() => Religion, (religion) => religion.volunteers, {nullable: true })
   @JoinColumn()
   religion: Religion;
 
