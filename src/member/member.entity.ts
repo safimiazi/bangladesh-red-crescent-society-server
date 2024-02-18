@@ -77,11 +77,14 @@ export class Member {
   @Column({ nullable: true })
   isAlive: boolean;
 
-  @Column()
+  @Column({ nullable: true })
   isMale: boolean;
 
-  @Column()
+  @Column({ nullable: true })
   isFemale: boolean;
+
+  @Column({nullable: true})
+  image: string;
 
   @ManyToOne(() => UpazilaTable, (upazilaTable) => upazilaTable.members)
   @JoinColumn()

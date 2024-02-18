@@ -8,92 +8,94 @@ import { Entity, Column, PrimaryGeneratedColumn, JoinColumn, ManyToOne } from 't
 
 @Entity()
 export class Volunteer {
-    @PrimaryGeneratedColumn()
-    id: number;
+  @PrimaryGeneratedColumn()
+  id: number;
 
-    @Column()
-    name: string;
+  @Column()
+  name: string;
 
-    @Column()
-    volunteerType: string;
+  @Column()
+  volunteerType: string;
 
-    @Column()
-    volunteerId: number;
+  @Column()
+  volunteerId: number;
 
-    @Column()
-    volunteerPosition: string;
+  @Column()
+  volunteerPosition: string;
 
-    @Column()
-    gender: string;
+  @Column()
+  gender: string;
 
-    @Column({ nullable: true })
-    registrationNo: string;
+  @Column({ nullable: true })
+  registrationNo: string;
 
-    @Column({ nullable: true })
-    nationalId: number;
+  @Column({ nullable: true })
+  nationalId: number;
 
-    @Column({ nullable: true })
-    education: string;
+  @Column({ nullable: true })
+  education: string;
 
-    @Column({ nullable: true })
-    dob: Date;
+  @Column({ nullable: true })
+  dob: Date;
 
-    @Column({ nullable: true })
-    joiningDate: Date;
+  @Column({ nullable: true })
+  joiningDate: Date;
 
-    @Column({ nullable: true })
-    mobileNo: string;
+  @Column({ nullable: true })
+  mobileNo: string;
 
-    @Column({ nullable: true })
-    emergencyContactNo: number;
+  @Column({ nullable: true })
+  emergencyContactNo: number;
 
-    @Column({ nullable: true })
-    email: string;
+  @Column({ nullable: true })
+  email: string;
 
-    @Column({ nullable: true })
-    fathersName: string;
+  @Column({ nullable: true })
+  fathersName: string;
 
-    @Column({ nullable: true })
-    mothersName: string;
+  @Column({ nullable: true })
+  mothersName: string;
 
-    @Column({ nullable: true })
-    birthCertificateNo: number;
+  @Column({ nullable: true })
+  birthCertificateNo: number;
 
-    @Column({ nullable: true })
-    passportNo: number;
+  @Column({ nullable: true })
+  passportNo: number;
 
-    @Column({ nullable: true })
-    presentOccupation: string;
+  @Column({ nullable: true })
+  presentOccupation: string;
 
-    @Column({ nullable: true })
-    adress: string;
+  @Column({ nullable: true })
+  adress: string;
 
-    @Column({ nullable: true })
-    insurance: string;
+  @Column({ nullable: true })
+  insurance: string;
 
-    @Column({ nullable: true })
-    twitter: string;
+  @Column({ nullable: true })
+  twitter: string;
 
-    @Column({ nullable: true })
-    facebook: string;
+  @Column({ nullable: true })
+  facebook: string;
 
-    @Column({ nullable: true })
-    resourceType: string;
+  @Column({ nullable: true })
+  resourceType: string;
 
-    
-  @ManyToOne(() => BloodGroupTable, (bloodGroupTable) => bloodGroupTable.volunteers, {eager:true, nullable: true, cascade: true, onDelete: "CASCADE"})
+  @Column({nullable:true})
+  image: string;
+
+  @ManyToOne(() => BloodGroupTable, (bloodGroupTable) => bloodGroupTable.volunteers, { eager: true, nullable: true, cascade: true, onDelete: "CASCADE" })
   @JoinColumn()
   bloodGroupTable: BloodGroupTable;
 
-  @ManyToOne(() => Unit, (unit) => unit.volunteers, {eager:true, nullable:true, cascade: true, onDelete: "CASCADE"})
+  @ManyToOne(() => Unit, (unit) => unit.volunteers, { eager: true, nullable: true, cascade: true, onDelete: "CASCADE" })
   @JoinColumn()
   unit: Unit;
 
-  @ManyToOne(()=> UpazilaTable, (upazilaTable)=> upazilaTable.volunteers, {eager:true, nullable:true, cascade: true, onDelete: "CASCADE"})
+  @ManyToOne(() => UpazilaTable, (upazilaTable) => upazilaTable.volunteers, { eager: true, nullable: true, cascade: true, onDelete: "CASCADE" })
   @JoinColumn()
   upazilaTable: UpazilaTable;
 
-  @ManyToOne(() => Religion, (religion) => religion.volunteers, {eager:true, nullable:true, cascade: true, onDelete: "CASCADE"})
+  @ManyToOne(() => Religion, (religion) => religion.volunteers, { eager: true, nullable: true, cascade: true, onDelete: "CASCADE" })
   @JoinColumn()
   religion: Religion;
 
