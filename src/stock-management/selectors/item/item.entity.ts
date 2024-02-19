@@ -1,4 +1,5 @@
-import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { ItemsTable } from "src/stock-management/items/items.entity";
+import { Column, Entity, JoinColumn, OneToMany, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity()
 export class ItemTable {
@@ -8,4 +9,8 @@ export class ItemTable {
 
     @Column()
     item: string;
+
+    @OneToMany(() => ItemsTable, (itemsTable) => itemsTable.itemTable, { nullable: false })
+    @JoinColumn()
+    itemsTable: ItemsTable[];
 }
