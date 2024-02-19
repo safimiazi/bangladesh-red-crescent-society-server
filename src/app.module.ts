@@ -26,6 +26,10 @@ import { ItemsModule } from './stock-management/items/items.module';
 import { ItemModule } from './stock-management/selectors/item/item.module';
 import { ItemTable } from './stock-management/selectors/item/item.entity';
 import { ItemsTable } from './stock-management/items/items.entity';
+import { WarehouseModule } from './stock-management/selectors/warehouse/warehouse.module';
+import { StockinItemsModule } from './stock-management/selectors/stockin-items/stockin-items.module';
+import { StockinItemsTable } from './stock-management/selectors/stockin-items/stockin-items.entity';
+import { WareHouseTable } from './stock-management/selectors/warehouse/warehouse.entity';
 
 @Module({
   imports: [
@@ -36,7 +40,7 @@ import { ItemsTable } from './stock-management/items/items.entity';
       username: process.env.DB_USERNAME,
       password: process.env.DB_PASSWORD,
       database: process.env.DB_NAME,
-      entities: [Member, Volunteer, Prefix, Unit, MemberType, Religion, BloodGroupTable, Prefix, UpazilaTable,MemberRoleTable, VolunteerTypeTable,ItemTable, ItemsTable],
+      entities: [Member, Volunteer, Prefix, Unit, MemberType, Religion, BloodGroupTable, Prefix, UpazilaTable, MemberRoleTable, VolunteerTypeTable, ItemTable, ItemsTable, StockinItemsTable, WareHouseTable],
       synchronize: true,
     }),
     TypeOrmModule.forFeature([Member, Prefix]),
@@ -51,8 +55,10 @@ import { ItemsTable } from './stock-management/items/items.entity';
     VolunteerTypeModule,
     ItemsModule,
     ItemModule,
+    WarehouseModule,
+    StockinItemsModule,
   ],
   controllers: [MemberController],
   providers: [MemberService],
 })
-export class AppModule {}
+export class AppModule { }

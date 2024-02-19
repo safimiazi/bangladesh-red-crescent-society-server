@@ -7,7 +7,7 @@ export class ItemsTable {
     @PrimaryGeneratedColumn()
     id: number;
 
-    @ManyToOne(() => ItemTable, (itemTable) => itemTable.itemsTable, { nullable: false })
+    @ManyToOne(() => ItemTable, (itemTable) => itemTable.itemsTable, { nullable: true })
     @JoinColumn()
     itemTable: ItemTable;
 

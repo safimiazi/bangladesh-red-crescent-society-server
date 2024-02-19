@@ -9,4 +9,4 @@ import { ItemTable } from './item.entity';
   controllers: [ItemController],
   providers: [ItemService]
 })
-export class ItemModule {}
+export class ItemModule { }
