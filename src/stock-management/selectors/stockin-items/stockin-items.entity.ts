@@ -1,4 +1,5 @@
-import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { StockinMainTable } from "src/stock-management/stockin-items-main/stockin-items-main.entity";
+import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity()
 export class StockinItemsTable {
@@ -7,4 +8,7 @@ export class StockinItemsTable {
 
     @Column()
     name: string;
+    // stockinItems
+    @OneToMany(() => StockinMainTable, (stockinMainTable) => stockinMainTable.stockinItemsTable)
+    stockinItems: StockinItemsTable[]
 }
