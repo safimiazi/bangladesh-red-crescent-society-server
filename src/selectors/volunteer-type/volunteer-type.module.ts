@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import { Module } from '@nestjs/common';
 import { VolunteerTypeController } from './volunteer-type.controller';
 import { VolunteerTypeService } from './volunteer-type.service';
