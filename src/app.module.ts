@@ -22,8 +22,13 @@ import { MemberRoleModule } from './selectors/member-role/member-role.module';
 import { MemberRoleTable } from './selectors/member-role/member-role.entity';
 import { VolunteerTypeModule } from './selectors/volunteer-type/volunteer-type.module';
 import { VolunteerTypeTable } from './selectors/volunteer-type/volunteer-type-entity';
+
 import { VolunteerPositionModule } from './selectors/volunteer-position/volunteer-position.module';
 import { VolunteerPositionTable } from './selectors/volunteer-position/volunteer-position.entity';
+import { ItemsModule } from './stock-management/items/items.module';
+import { ItemModule } from './stock-management/selectors/item/item.module';
+import { ItemTable } from './stock-management/selectors/item/item.entity';
+import { ItemsTable } from './stock-management/items/items.entity';
 
 @Module({
   imports: [
@@ -34,7 +39,7 @@ import { VolunteerPositionTable } from './selectors/volunteer-position/volunteer
       username: process.env.DB_USERNAME,
       password: process.env.DB_PASSWORD,
       database: process.env.DB_NAME,
-      entities: [Member, Volunteer, Prefix, Unit, MemberType, Religion, BloodGroupTable, Prefix, UpazilaTable,MemberRoleTable, VolunteerTypeTable, VolunteerPositionTable],
+      entities: [Member, Volunteer, Prefix, Unit, MemberType, Religion, BloodGroupTable, Prefix, UpazilaTable,MemberRoleTable, ItemTable, ItemsTable, VolunteerTypeTable, VolunteerPositionTable],
       synchronize: true,
     }),
     TypeOrmModule.forFeature([Member, Prefix]),
@@ -49,6 +54,8 @@ import { VolunteerPositionTable } from './selectors/volunteer-position/volunteer
     VolunteerTypeModule,
   
     VolunteerPositionModule,
+    ItemsModule,
+    ItemModule,
   ],
   controllers: [MemberController],
   providers: [MemberService],
