@@ -24,25 +24,8 @@ export class ItemService {
         }
     }
 
-}
-
-/*
-    constructor(
-        @InjectRepository(Unit)
-        private readonly unitRepository: Repository<Unit>,
-    ) { }
-
-    async createUnit(unitData: Partial<Unit>): Promise<Unit> {
-
-        try {
-            const unit = this.unitRepository.create(unitData);
-            console.log(unit);
-            const savedUnit = await this.unitRepository.save(unit);
-            return savedUnit;
-        } catch (error) {
-            console.error('Error saving user:', error);
-            throw error;
-        }
+    async getAllItem(): Promise<ItemTable[]> {
+        return await this.itemRepository.find()
     }
-    
-    */
+
+}
