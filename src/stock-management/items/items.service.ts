@@ -26,7 +26,7 @@ export class ItemsService {
 
 
     async getAllItems(): Promise<ItemsTable[]> {
-        return await this.itemsRepository.find()
+        return await this.itemsRepository.find({ relations: ['itemTable'] })
     }
 
 }

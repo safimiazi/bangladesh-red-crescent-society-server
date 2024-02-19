@@ -1,4 +1,5 @@
-import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
+import { ItemTable } from "../selectors/item/item.entity";
 
 @Entity()
 export class ItemsTable {
@@ -6,9 +7,11 @@ export class ItemsTable {
     @PrimaryGeneratedColumn()
     id: number;
 
-    @Column()
-    item: string;
+    @ManyToOne(() => ItemTable, (itemTable) => itemTable.itemsTable, { nullable: false })
+    @JoinColumn()
+    itemTable: ItemTable;
 
     @Column()
     description: string;
+
 }
