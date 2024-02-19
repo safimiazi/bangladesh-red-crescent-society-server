@@ -10,7 +10,7 @@ export class ItemsController {
     }
 
     @Post()
-    testRoute(@Body() createItemsDto: any) {
+    testRoute(@Body() createItemsDto: CreateItemsDto) {
         console.log('Received data:', createItemsDto);
         return { message: 'Data received successfully' };
     }
