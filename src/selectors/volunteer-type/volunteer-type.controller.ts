@@ -1,4 +1,6 @@
-import { Body, Controller, Get, HttpException, HttpStatus, Post, Req, Res } from '@nestjs/common';
+/* eslint-disable prettier/prettier */
+import { Body, Controller, Get, HttpException, HttpStatus, Post } from '@nestjs/common';
+
 import { VolunteerTypeService } from './volunteer-type.service';
 import { CreateVolunteerTypeDto } from './create-volunteer.dto';
 import { VolunteerTypeTable } from './volunteer-type-entity';
@@ -6,32 +8,29 @@ import { VolunteerTypeTable } from './volunteer-type-entity';
 @Controller('volunteer-type')
 export class VolunteerTypeController {
 
-    constructor(private readonly volunteerTypeService: VolunteerTypeService) { }
+  constructor(private readonly volunteerTypeService : VolunteerTypeService) { }
 
-    // @Get()
-    // async getHello() {
-    //     return 'Hello World'
-    // }
-
-    @Post()
-    async createVolunteerType(@Body() createVolunteerTypeDto: CreateVolunteerTypeDto): Promise<{ message: string, volunteerTypeTable: VolunteerTypeTable }> {
-        try {
-            const volunteerTypeTable = await this.volunteerTypeService.createVolunteerType(createVolunteerTypeDto);
-            return { message: 'Unit created successfully', volunteerTypeTable };
-        } catch (error) {
-            throw new HttpException({ message: 'An unexpected error occurred.' }, HttpStatus.INTERNAL_SERVER_ERROR);
-        }
-    }
-
-
-    /*
-    @Post()
-  async createUnit(@Body() createUnitDto: CreateUnitDto): Promise<{ message: string, unit: Unit }> {
+  @Post()
+  async createVolunteerType(@Body() createVolunteerTypeDto : CreateVolunteerTypeDto) : Promise<{message: string, volunteers: VolunteerTypeTable}> {
     try {
-      const unit = await this.unitService.createUnit(createUnitDto);
-      return { message: 'Unit created successfully', unit };
+      const volunteers = await this.volunteerTypeService.createVolunteerType(createVolunteerTypeDto);
+    return {message : "Volunteers created successfully", volunteers}
     } catch (error) {
       throw new HttpException({ message: 'An unexpected error occurred.' }, HttpStatus.INTERNAL_SERVER_ERROR);
     }
-    */
+  }
+
+
+  @Get()
+
+  async getAllVolunteer(): Promise<{message: string; volunteers: VolunteerTypeTable[] }> {
+    try {
+      const volunteers = await this.volunteerTypeService.getAllVolunteer();
+      return {message: "Successfully retrieved all volunteers", volunteers}
+    } catch (error) {
+      console.log(error);
+      throw new HttpException({message: "An unexpected error occurred"}, HttpStatus.INTERNAL_SERVER_ERROR)
+    }
+  }
+
 }
